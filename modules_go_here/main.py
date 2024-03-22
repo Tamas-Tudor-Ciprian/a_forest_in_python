@@ -15,20 +15,44 @@ from screen_buffer_handling import *
 
 
 def simulation():
-    TREE = Fore.GREEN + 'T'
-    Fire = Fore.LIGHTRED_EX + 'F'
-    INTENSE_FIRE = Fore.RED + 'F'
+    TREE = Fore.GREEN + 'I'
+    FIRE = Fore.LIGHTRED_EX + 'm'
+    INTENSE_FIRE = Fore.RED + 'M'
     handler = buffer_handler()
     counter = 10
+
+    fire_buffer = []
+
+    for i in range(WIDTH*HEIGHT):
+        fire_buffer.append(0)
+
     while True:
+
         if counter == 10:
             handler.add_to_random_location(TREE)
             counter = 0
         counter = counter + 1
         handler.print(0.1)
+
+        handler.remove(INTENSE_FIRE)
+        handler.random_replace(TREE,FIRE)
+        handler.replace(FIRE,INTENSE_FIRE)
+
         for i in range(WIDTH*HEIGHT):
+            x_coord , y_coord = linear_to_cartesian(i,WIDTH)
             if handler.buffer[i] == TREE:
-                handler.add_to_surrounding_random_location(i,TREE)
+                if random.randrange(3) == 2:
+                    handler.add_to_surrounding_random_location(i,TREE)
+                if handler.check_around_for_element(x_coord,y_coord,FIRE) == True or handler.check_around_for_element(x_coord,y_coord,INTENSE_FIRE) == True:
+                    fire_buffer[i] = 1
+
+        for i in range(WIDTH*HEIGHT):
+            if fire_buffer[i] == 1:
+                fire_buffer[i] = 0
+                handler.buffer[i] = FIRE
+
+
+
 
 
 

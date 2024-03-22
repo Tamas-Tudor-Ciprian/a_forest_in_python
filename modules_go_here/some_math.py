@@ -15,5 +15,5 @@ def random_location_around_cartesian_coordinate(x,y):
     holder_y = holder[1]
     return holder_x,holder_y
 
-def check_around_for_element(x,y,list):
-    around_tuple = ((x - 1, y - 1), (x, y - 1), (x + 1, y - 1), (x - 1, y), (x + 1, y), (x - 1, y + 1), (x, y + 1), (x + 1, y + 1))
+
+
