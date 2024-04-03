@@ -15,9 +15,9 @@ from screen_buffer_handling import *
 
 
 def simulation():
-    TREE = Fore.GREEN + 'I'
-    FIRE = Fore.LIGHTYELLOW_EX + 'm'
-    INTENSE_FIRE = Fore.RED + 'M'
+    TREE = Fore.GREEN + '↑'
+    FIRE = Fore.LIGHTYELLOW_EX + 'ш'
+    INTENSE_FIRE = Fore.RED + 'Ш'
     handler = buffer_handler()
     counter = 10
 
