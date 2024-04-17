@@ -67,3 +67,6 @@ class buffer_handler:
                     return True
         return False
 
+    def add(self,x,y,to_add):
+        self.buffer[cartesian_to_linearr(x, y, WIDTH)] = to_add
+

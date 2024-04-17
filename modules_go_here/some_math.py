@@ -2,6 +2,8 @@ import random
 
 def cartesian_to_linear(x,y,WIDTH):
     return x*WIDTH+y
+def cartesian_to_linearr(x,y,WIDTH):
+    return y*WIDTH+x
 
 def linear_to_cartesian(x,WIDTH):
     y = x%WIDTH

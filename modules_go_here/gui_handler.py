@@ -3,12 +3,15 @@ import os
 import customtkinter  # <- import the CustomTkinter module
 
 root_tk = tkinter.Tk()  # create the Tk window like you normally do
-root_tk.geometry("400x240")
+root_tk.geometry("400x120")
 root_tk.title("Forest fire simulation")
 
 
 def random_start(event):
-    os.system("start cmd /k python main.py")
+    os.system("start cmd /k python random_fire.py")
+
+def center_start(event):
+    os.system("start cmd /k python center_fire.py")
 
 
 
@@ -29,6 +32,7 @@ center_start_button = tkinter.Button(
 )
 
 random_start_button.bind("<Button-1>",random_start)
+center_start_button.bind("<Button-1>",center_start)
 
 welcome_message = tkinter.Label(text = "Select simulation mode:")
 
